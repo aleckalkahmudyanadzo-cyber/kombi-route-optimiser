@@ -1,6 +1,6 @@
 # 🚐 Kombi Route Optimizer
 
-A shortest-path finder for Gweru's kombi (minibus taxi) network, built to explore
+A shortest path finder for Gweru's kombi (minibus taxi) network, built to explore
 and compare **Dijkstra's algorithm** and **A\* search** on a real-world-inspired
 transport graph. Given two stops, it finds the cheapest, fastest, or shortest
 route and visualizes it on an interactive graph.
@@ -13,7 +13,7 @@ State University, Computer Science.
 Kombis are the backbone of urban transport in Zimbabwe, but there's no tool
 for comparing routes by cost, time, or distance the way ride-hailing apps do
 elsewhere. This project models that problem as a weighted graph and applies
-classic pathfinding algorithms to solve it — a small but complete example of
+classic pathfinding algorithms to solve it  a small but complete example of
 taking algorithms from the classroom into a locally relevant application.
 
 ## Features
@@ -69,7 +69,7 @@ pytest tests/ -v
 ## Algorithm design & complexity analysis
 
 Each stop is a `Node`; each kombi route is a bidirectional `Edge` carrying
-**three independent weights** — distance (km), fare (USD), and time (min) —
+**three independent weights**  distance (km), fare (USD), and time (min) 
 so the same graph answers "cheapest", "fastest", and "shortest" queries just
 by switching which weight the search uses.
 
@@ -84,14 +84,14 @@ by switching which weight the search uses.
 - Uses **haversine (straight-line) distance** between real stop coordinates
   as the heuristic
 - This heuristic is only *admissible* (guarantees optimality) when optimizing
-  for `distance_km`, since it's derived from actual geography — this is
+  for `distance_km`, since it's derived from actual geography this is
   called out explicitly in `graph.py` rather than glossed over, since using
-  a distance-based heuristic to optimize for fare or time isn't theoretically
+  a distance based heuristic to optimize for fare or time isn't theoretically
   guaranteed to be optimal, even though it still returns a good result in
   this dataset
 
-This distinction — where a heuristic works and where it stops being
-admissible — was the most interesting part of building this, and it's the
+This distinction  where a heuristic works and where it stops being
+admissible  was the most interesting part of building this, and it's the
 kind of nuance that's easy to miss if you just copy a textbook A*
 implementation without thinking about what the heuristic actually represents.
 
@@ -99,7 +99,7 @@ implementation without thinking about what the heuristic actually represents.
 
 Stop names and connectivity reflect real Gweru suburbs and kombi ranks.
 Exact distances, fares, and travel times are **estimates** for demonstration
-— before treating this as production-accurate, replace `data/gweru_routes.json`
+ before treating this as production-accurate, replace `data/gweru_routes.json`
 with surveyed figures.
 
 ## Possible extensions
